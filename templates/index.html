@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-3xl font-bold text-center mb-8 text-blue-600">Heart Disease Prediction</h1>
+        <form id="predictionForm" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="age">Age:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="age" name="age" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="sex">Sex:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="sex" name="sex" required>
+                        <option value="">Select</option>
+                        <option value="0">Female</option>
+                        <option value="1">Male</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="cp">Chest Pain Type:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="cp" name="cp" required>
+                        <option value="">Select</option>
+                        <option value="0">Typical Angina</option>
+                        <option value="1">Atypical Angina</option>
+                        <option value="2">Non-anginal Pain</option>
+                        <option value="3">Asymptomatic</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="trestbps">Resting Blood Pressure (mm Hg):</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="trestbps" name="trestbps" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="chol">Cholesterol (mg/dl):</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="chol" name="chol" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="fbs">Fasting Blood Sugar > 120 mg/dl:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="fbs" name="fbs" required>
+                        <option value="">Select</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="restecg">Resting ECG Results:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="restecg" name="restecg" required>
+                        <option value="">Select</option>
+                        <option value="0">Normal</option>
+                        <option value="1">ST-T Wave Abnormality</option>
+                        <option value="2">Left Ventricular Hypertrophy</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="thalach">Max Heart Rate Achieved:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" id="thalach" name="thalach" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="exang">Exercise Induced Angina:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="exang" name="exang" required>
+                        <option value="">Select</option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="oldpeak">ST Depression Induced by Exercise:</label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" step="0.1" id="oldpeak" name="oldpeak" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="slope">Slope of the Peak Exercise ST Segment:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="slope" name="slope" required>
+                        <option value="">Select</option>
+                        <option value="0">Upsloping</option>
+                        <option value="1">Flat</option>
+                        <option value="2">Downsloping</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="ca">Number of Major Vessels Colored by Fluoroscopy:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ca" name="ca" required>
+                        <option value="">Select</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="thal">Thalassemia:</label>
+                    <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="thal" name="thal" required>
+                        <option value="">Select</option>
+                        <option value="0">Normal</option>
+                        <option value="1">Fixed Defect</option>
+                        <option value="2">Reversible Defect</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex items-center justify-center mt-6">
+                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                    Predict
+                </button>
+            </div>
+        </form>
+        <div id="result" class="text-center text-xl font-bold mt-4"></div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').onsubmit = async function (e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = {
+                features: [
+                    parseInt(formData.get('age')),
+                    parseInt(formData.get('sex')),
+                    parseInt(formData.get('cp')),
+                    parseInt(formData.get('trestbps')),
+                    parseInt(formData.get('chol')),
+                    parseInt(formData.get('fbs')),
+                    parseInt(formData.get('restecg')),
+                    parseInt(formData.get('thalach')),
+                    parseInt(formData.get('exang')),
+                    parseFloat(formData.get('oldpeak')),
+                    parseInt(formData.get('slope')),
+                    parseInt(formData.get('ca')),
+                    parseInt(formData.get('thal'))
+                ]
+            };
+
+            try {
+                const response = await fetch('/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const result = await response.json();
+                const resultElement = document.getElementById('result');
+                resultElement.innerText = 'Prediction: ' + (result.prediction === 1 ? 'High risk of heart disease' : 'Low risk of heart disease');
+                resultElement.className = result.prediction === 1 ? 'text-center text-xl font-bold mt-4 text-red-600' : 'text-center text-xl font-bold mt-4 text-green-600';
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerText = 'An error occurred while making the prediction. Please try again.';
+                document.getElementById('result').className = 'text-center text-xl font-bold mt-4 text-red-600';
+            }
+        };
+    </script>
+</body>
+</html>
